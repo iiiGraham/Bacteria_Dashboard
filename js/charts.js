@@ -61,6 +61,9 @@ function buildCharts(sample) {
   d3.json("samples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
     var samples = data.samples;
+
+    // create variable that holds the metadata array
+    let metadata = data.metadata;
     // 4. Create a variable that filters the samples for the object with the desired sample number.
     var filteredSample = samples.filter(sampleObj => sampleObj.id == sample)[0];
     console.log(filteredSample);
@@ -133,22 +136,44 @@ function buildCharts(sample) {
       title: "Bacteria Cultures Per Sample",
       showlegend: false,
       xaxis: {title: "OTU ID"},
-      height: 600,
-      width: 1000
+      // height: 600,
+      // width: 1000
     };
 
     Plotly.newPlot("bubble", bubbleData, bubbleLayout)
 
 
     // create gauge chart
-    var gaugeData = [{
+    // get information from metadata
+    // Filter the data for the object with the desired sample number
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample)[0];
+    // console.log(resultArray)
 
+    // variable for wash frequency - wfreq
+    var washFrequency = parseFloat(resultArray.wfreq);
+    // console.log(washFrequency)
+    var gaugeData = [{
+      value: washFrequency,
+      type: "indicator",
+      mode: "gauge+number",
+      title: {text: "<b>"+"Belly Button Washing Frequency"+"</b>" + "<br>Scrubs Per Week<br>"},
+      gauge: {axis: {
+        range: [null, 10]},
+        bar: {color: "black"},
+        steps: [
+          {range: [0, 2], color: "red"},
+          {range: [2, 4], color: "orange"},
+          {range: [4, 6], color: "yellow"},
+          {range: [6, 8], color: "lawngreen"},
+          {range: [8, 10], color: "green"}
+        ]}
     }];
 
     var gaugeLayout = {
 
     };
 
+    Plotly.newPlot("gauge", gaugeData, gaugeLayout)
   });
 }
 
