@@ -1,0 +1,17 @@
+/* css structure = element, class attirbute, or id attribute: value;
+    below = body { attribute: value; }*/
+
+    body {
+        
+    }
+    
+    .jumbotron {
+        color: #f7f7f7;
+        background-image: url("../images/bacteria.jpg");
+        background-size: 100% 100%;
+        text-align: center;
+    }
+    
+    /*#filter-btn {
+        text-align: center;
+    }*/

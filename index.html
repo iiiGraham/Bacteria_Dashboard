@@ -9,54 +9,71 @@
 
   <!-- reference Bootstrap to use css elements -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- link to css stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css"
+
 </head>
 
-<body>
+<body class="bg-dark">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-
-          <!-- create drop down menu -->
-          <!-- <select id="selDataset"></select> -->
-          <!-- calling a js function within HTML
-            optionsChanged function being called on the element that was changed (this.value) -->
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+  <div class="container-fluid">
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
+    </div>
+      <div class="row">
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Belly Button Biodiversity Dashboard</h1>
+          <p>Use the interactive charts below to explore the dataset</p>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-8">
+        <p>
+          Groundbreaking research at Improbable Meats is launching a brighter future for carnivours everywhere. We can now efficiently and cost effectively generate real meat using bacteria commonly found in the human belly button. The world will never be the same...<br><br>
+        
+          Thank you again for participating in our study to find out if you have what it takes in your belly button to be a part of the future of meat. Select your participant ID number from the drop down menu below to see your own data and check out the data from other participants in the study.<br><br>
+          
+          If you have the right cultures then congratulations! If you do not, your efforts will not be wasted. All of the data collected will be used to further Improbably Meat research. We hope you are still looking forward to a future where you can put a belly-button-burger in your own belly.
+        </p>
+      </div>
+    </div>  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 text-center">
+          <div class="well">
+            <h5>Test Subject ID No.:</h5>
+
+            <!-- create drop down menu -->
+            <!-- <select id="selDataset"></select> -->
+            <!-- calling a js function within HTML
+              optionsChanged function being called on the element that was changed (this.value) -->
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
           </div>
-
-          <!-- panel body for demographic information -->
-          <div id="sample-metadata" class="panel-body"></div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Demographic Info</h3>
+            </div>
+          
+            <!-- panel body for demographic information -->
+            <div id="sample-metadata" class="panel-body bg-dark"></div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div id="bar"></div>
+        </div>
+        <div class="col-md-5">
+          <div id="gauge"></div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+      <div class="row">
+        <div class="col-xxl-12">
+          <div id="bubble"></div>
+        </div>
       </div>
     </div>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="js/charts.js"></script>
+  <script src="static/js/charts.js"></script>
 
 </body>
 
